@@ -1,0 +1,13 @@
+MODE=sandbox
+
+CLIENT_ID_SB=YourApp_Sandbox_ClientID
+CLIENT_SECRET_SB=YourApp_Sandbox_ClientSecret
+
+USERNAME_SB=YourSandboxAccountUserName
+PASSWORD_SB=YourSandboxAccountPassword
+
+CLIENT_ID_PROD=YourApp_Production_ClientID
+CLIENT_SECRET_PROD=YourApp_Production_ClientSecret
+
+USERNAME_PROD=YourProductionAccountUserName
+PASSWORD_PROD=YourProductionAccountPassword

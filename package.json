@@ -1,0 +1,22 @@
+{
+  "name": "callrecording-notification-node",
+  "version": "1.0.0",
+  "description": "Get new call recording notification.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ringcentral"
+  ],
+  "author": "Paco-Vu",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "ringcentral": "^3.2.0",
+    "async": "^2.6.1"
+  },
+  "engines": {
+    "node": "8.1.2"
+  }
+}
