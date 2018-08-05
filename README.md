@@ -1,4 +1,5 @@
-# callrecording-notification-node
+# Call Recording Notification Demo for Node.js
+
 Get notified when a new call with call recording is logged.
 
 ## Clone the project
