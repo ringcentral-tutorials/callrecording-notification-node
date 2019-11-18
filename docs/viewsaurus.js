@@ -141,7 +141,6 @@ var dpwMenu = function () {
     var items = [
         {
             title: 'API Product',
-            link: 'https://developer.ringcentral.com/api-products',
             items: [
                 {
                     title: 'Voice',
@@ -166,14 +165,6 @@ var dpwMenu = function () {
                 {
                     title: 'Configuration',
                     link: 'https://developer.ringcentral.com/api-products/configuration'
-                },
-                {
-                    title: 'Embeddable Voice',
-                    link: 'https://developer.ringcentral.com/embeddable-voice.html'
-                },
-                {
-                    title: 'Meetings',
-                    link: 'https://developer.ringcentral.com/api-products/meetings'
                 }
             ]
         },
@@ -263,10 +254,6 @@ var dpwMenu = function () {
                 {
                     title: 'Services',
                     link: 'https://developer.ringcentral.com/support/services.html'
-                },
-                {
-                    title: 'Developer Events',
-                    link: 'https://developer.ringcentral.com/support/developer-events.html'
                 },
                 {
                     title: 'Community',

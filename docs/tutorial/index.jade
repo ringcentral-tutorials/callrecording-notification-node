@@ -1,5 +1,5 @@
 .chapter(data-title='Call Recording Notification Tutorial')
- .step(data-title='Welcome!', data-file='README.md', data-highlight='1-8')
+ .step(data-title='Welcome!', data-file='../README.md', data-highlight='1-8')
     :markdown
       ## Welcome to the tutorial
 
@@ -8,16 +8,16 @@
       ### Requirements
       You must have a RingCentral developer account. If you don't have one, click [here](https://developer.ringcentral.com) to create a free developer account.
 
-      You also have to [create a RingCentral app](https://developer.ringcentral.com/library/getting-started.html) with the "ReadCallLog" and "ReadAccounts" permissions. And retrieve your app ClientId and ClientSecret for using with this tutorial. Choose "Server-only (No UI)" for the app's platform type and "Password flow" for the Authorization flows.
+      You also have to [create a RingCentral app](https://developer.ringcentral.com/library/getting-started.html) with the "ReadCallLog" and "ReadPresence" permissions. And retrieve your app ClientId and ClientSecret for using with this tutorial. Choose "Server-only (No UI)" for the app's platform type and "Password flow" for the Authorization flows.
 
- .step(data-title='Project setup', data-file='README.md')
+ .step(data-title='Project setup', data-file='../README.md')
     :markdown
       ## Clone the project from GitHub
       Run the commands shown on the right-hand side to clone the project from GitHub
 
       Navigate to the folder and install the dependencies
 
- .step(data-title='Set environment', data-file='dotenv')
+ .step(data-title='Set environment', data-file='../dotenv')
   :markdown
     ## Set environment parameters
 
@@ -25,7 +25,7 @@
 
     __Note__: If you want to run the app on your production environment, make sure that your app is graduated and use the app production clientId and clientSecret. Also remember to change the MODE=production.
 
- .step(data-title='Instantiate RingCentral SDK', data-file='index.js', data-highlight='6-22')
+ .step(data-title='Instantiate RingCentral SDK', data-file='../index.js', data-highlight='6-22')
   :markdown
     ## Instantiate the RingCentral Node JS SDK
     First, we create the SDK instance `rcsdk` and initialize it with the clientId and clientSecret.
@@ -34,19 +34,19 @@
 
     We also call the `rcsdk.createSubscription()` function to create a `subscription` instance and implement a callback function 'presenceEvent' to receive notification events.
 
- .step(data-title='Login to RingCentral account', data-file='index.js', data-highlight='26-49')
+ .step(data-title='Login to RingCentral account', data-file='../index.js', data-highlight='26-49')
   :markdown
     ## Login to RingCentral account
     To login RingCentral account, we call the `platform.login()` function with the given account's username and password.
 
     __Note__: In this application, we will use the push notification for company presence events. This means that we need to login with the main company username or with a user who has the admin role, so that we can receive push notification event for all users under the company account..
 
- .step(data-title='Implement Notification Subscription', data-file='index.js', data-highlight='43')
+ .step(data-title='Implement Notification Subscription', data-file='../index.js', data-highlight='43')
   :markdown
     ## Implement notification subscription
     After logged in successfully, we are ready to subscribe for push notification so that we can receive company presence events.
 
- .step(data-title='Create Notification Subscription', data-file='index.js', data-highlight='51-71')
+ .step(data-title='Create Notification Subscription', data-file='../index.js', data-highlight='51-71')
   :markdown
     ## Create notification subscription
     Before creating a new subscription for notification, we may need to detect if we have created one earlier. This step is necessary because the app could be terminated and rerun for any reason and we don't want to create multiple subscriptions.
@@ -57,7 +57,7 @@
 
     When we rerun the app, we read the __subscriptionId__ from the local file, then we will call the `removeRegisteredSubscription(id)` function with the subscription Id to delete that subscription before creating a new one.
 
- .step(data-title='Subscribe for Notifications', data-file='index.js', data-highlight='73-90')
+ .step(data-title='Subscribe for Notifications', data-file='../index.js', data-highlight='73-90')
   :markdown
     ## Subscribe for notifications
     RingCentral push notification supports multiple events notification. This means that we can subscribe for notifications of several different events such as when there is an incoming SMS, when a SMS message is deleted, when there is an incoming call etc. in a single subscription.
@@ -68,19 +68,19 @@
 
     Now we are ready to receive company presence events.
 
- .step(data-title='Receive Company Presence Events', data-file='index.js', data-highlight='92-98')
+ .step(data-title='Receive Company Presence Events', data-file='../index.js', data-highlight='92-98')
   :markdown
     ## Capture the event information
     Whenever we receive a company presence event, we capture the __extensionId__ and the __telephonyStatus__ and create an empty __startTime__ then add those parameters to a user object then call the _checkTelephonyStatusChange(user)_ function, passing the __user__ object along.
 
- .step(data-title='Manage the users list', data-file='index.js', data-highlight='136-143')
+ .step(data-title='Manage the users list', data-file='../index.js', data-highlight='136-143')
   :markdown
     ## Manage the list of users under the company account
     Inside the _checkTelephonyStatusChange(user)_ function, we checked if the __extensionId__ has been added to the __usersList__.
 
     If the extension is not found from the list, we add the new __user__ object to the __usersList__. We also check if the __telephonyStatus__ is 'Ringing' then we create a timestamp to specify the __startTime__.
 
- .step(data-title='Telephony Status', data-file='index.js', data-highlight='100-144')
+ .step(data-title='Telephony Status', data-file='../index.js', data-highlight='100-144')
   :markdown
     ## Detect the telephony status changed sequences
     The Account Presence Event provides us with different user statuses. In this application, we are interested at only the __telephonyStatus__ which has the following value:
@@ -93,7 +93,7 @@
 
     Then if the call is terminated, the __telephonyStatus__ will be changed from ‘CallConnected’ to ‘NoCall’.
 
- .step(data-title='Build the logics', data-file='index.js', data-highlight='102-134')
+ .step(data-title='Build the logics', data-file='../index.js', data-highlight='102-134')
   :markdown
     ## Build the logics
     First of all, we need to detect the time when the call started ringing. That is whenever the __telephonyStatus__ is changed from 'NoCall' to 'Ringing', we create the timestamp and keep it in the __startTime__ in a user object. The __startTime__ value will be used to define the time range when we read the user call logs.
@@ -104,7 +104,7 @@
 
     After the call is terminated, we create the timestamp for the __stopTime__, and we wait for about 20 seconds for the system to update the call log database, then proceed to read the call-log.
 
- .step(data-title='Detect Call Recording', data-file='index.js', data-highlight='156-195')
+ .step(data-title='Detect Call Recording', data-file='../index.js', data-highlight='156-195')
   :markdown
     ## Read the call log
     We use the __extensionId__ to create an endpoint for reading the call log of that particular extension.
