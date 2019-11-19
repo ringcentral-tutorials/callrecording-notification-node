@@ -1,0 +1,6 @@
+{
+    "title": "Learn how to get new call recording notification using Node JS",
+    "repo": "ringcentral-tutorials/callrecording-notification-node",
+    "description": "Learn how to use the Company Pesence event push notification to get notified when a new call recording is logged. Click the \"Start Tutorial\" button below to start.",
+    "heroku": false
+}
